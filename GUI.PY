@@ -67,21 +67,6 @@ class Grid:
         
         return None
 
-    def de_highlight_row_col(self, static, type):
-        fnt = pygame.font.SysFont("comicsans", 30)
-
-        values = [self.cubes[static][c] for c in range(9)]
-
-        if type == "col":
-            values = [self.cubes[r][static] for r in range(9)]
-
-        for i in range(9):
-            text = fnt.render(str(values[i].value), 1, (0, 0, 0))
-            self.surface.fill((255, 255, 255), values[i].rect)
-            self.surface.blit(text, (values[i].col * 60 + (60 / 2 - text.get_width() / 2), values[i].row * 60 + (60 / 2 - text.get_height() / 2)))
-
-            pygame.display.update()
-
     def highlight_elements(self, elements, element, case):
 
         fnt = pygame.font.SysFont("comicsans", 30)
